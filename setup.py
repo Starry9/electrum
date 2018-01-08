@@ -45,6 +45,7 @@ setup(
         'dnspython',
         'jsonrpclib-pelix',
         'PySocks>=1.6.6',
+        'x13bcd-hash',
     ],
     packages=[
         'electrum',
