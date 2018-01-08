@@ -907,10 +907,11 @@ class Network(util.DaemonThread):
             raise BaseException(interface.mode)
         # If not finished, get the next header
         if next_height:
-            if interface.mode == 'catch_up' and interface.tip > next_height + 50:
-                self.request_chunk(interface, next_height // 2016)
-            else:
-                self.request_header(interface, next_height)
+            self.request_header(interface, next_height)
+            # if interface.mode == 'catch_up' and interface.tip > next_height + 50:
+            #     self.request_chunk(interface, next_height // 2016)
+            # else:
+            #     self.request_header(interface, next_height)
         else:
             interface.mode = 'default'
             interface.request = None
